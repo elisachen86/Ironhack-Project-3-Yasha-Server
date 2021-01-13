@@ -14,7 +14,7 @@ const userSchema = new Schema({
         permission: { type: String, enum: ["admin", "editor"]},
         //default:"editor" ???
         userType: { type: String, enum: ["retailer", "brand"] },
-        company: { type: Schema.Types.ObjectId, ref: "Company" },
+        company: { type: Schema.Types.ObjectId, ref: "company" },
         
 }, { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } });
 

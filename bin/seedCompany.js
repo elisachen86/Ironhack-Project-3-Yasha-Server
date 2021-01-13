@@ -1,6 +1,5 @@
 require("dotenv").config()
 require("./../config/dbConnection")
-
 const Company = require("./../models/Company")
 
 
@@ -38,6 +37,13 @@ Company.deleteMany()
     const insertedCompanies = await Company.insertMany(companies);
     console.log(`ok : ${insertedCompanies.length} companies inserted`);
   })
+  // .then(async () => {
+  //   User.deleteMany()
+  // })
+  // .then(async () => {
+  //   const insertedUsers = await User.insertMany(users)
+  //   console.log(`ok : ${insertedUsers.length} users inserted`);
+  // })
   .catch((err) => {
     console.log(err);
   });

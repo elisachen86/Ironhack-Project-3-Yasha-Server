@@ -1,8 +1,6 @@
 require("dotenv").config()
 require("./../config/dbConnection")
-
 const User = require("./../models/User")
-
 
 const users =  [
     {
@@ -31,10 +29,11 @@ const users =  [
     password: "toto",
     permission: "editor",
     userType: "brand",
-    // company: "Chat"
+    // company: "Issoire"
 },
 
 ]
+
 
 
 User.deleteMany()
