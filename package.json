@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "seeduser": "node ./bin/seedUser.js",
+    "seedcompany": "node ./bin/seedCompany.js"
   },
   "dependencies": {
     "aws-s3": "^2.0.5",
