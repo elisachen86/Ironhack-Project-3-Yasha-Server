@@ -22,15 +22,3 @@ const User = mongoose.model("User", userSchema);
 
 module.exports = User;
 
-
-// firstName: String
-// lastName: String
-// email: String
-// password: String 
-// avatar: String
-// role/permission: 
-// type String, 
-// enum: [admin, editor ] // admin: owner | editor: just see their orders, not whole version
-// userType: type String, enum: [retailer, brand]
-// company: reference company db
-// Timestamps: createdAt, 

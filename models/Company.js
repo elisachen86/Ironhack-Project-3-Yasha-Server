@@ -14,7 +14,7 @@ const companySchema = new Schema({
                 categoryList: [String],
                 accountOwner: { type: Schema.Types.ObjectId, ref: "User"},
                 userList:[{
-                    users: { type: Schema.Types.ObjectId, ref: "User" }
+                   type: Schema.Types.ObjectId, ref: "User" 
                 }], 
                 plan: {type: String, enum: ["Stater", "Professional", "Enterprise"]}
 
