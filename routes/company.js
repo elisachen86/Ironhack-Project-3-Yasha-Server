@@ -22,7 +22,6 @@ router.post("/mycompany",
             }
         });
 
-//Question : maybe company info needs to be saved in the app state so we can use across the app ? 
 
 ///////  GET USE'S COMPANY INFO ///////
 // TBC : deploying the requireAuth, uncomment the line below
@@ -31,9 +30,7 @@ router.get("/mycompany",
     async (req, res, next) => {
         try{
             const currentUserId = req.session.currentUser
-            const userCompany = await User.findById(currentUserId).populate("Company")
-            
-            console.log(userCompany)
+            const userCompany = await User.findById(currentUserId).populate("company")
             res.status(200).json(userCompany)
         }catch(error){
             next(error)
@@ -45,7 +42,6 @@ router.get("/mycompany",
 router.patch("/mycompany",
     // requireAuth, 
            async (req, res, next) => {
-
                 try{
                     const currentUserId = req.session.currentUser; 
                     const user = await User.findById(currentUserId)

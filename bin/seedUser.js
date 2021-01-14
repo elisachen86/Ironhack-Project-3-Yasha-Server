@@ -32,8 +32,61 @@ const users =  [
     userType: "brand",
 },
 
-]
+{
+      firstName: "Frank",
+      lastName: "M", 
+      email:  "frank@youtuber.com",
+      password: "toto",
+      permission: "editor",
+      userType: "retailer",
+},
 
+{
+      firstName: "Andy",
+      lastName: "T", 
+      email:  "andy@hacker.com",
+      password: "toto",
+      permission: "editor",
+      userType: "retailer",
+},
+
+{
+      firstName: "Vincent",
+      lastName: "P", 
+      email:  "vincent@911.com",
+      password: "toto",
+      permission: "editor",
+      userType: "brand",
+},
+
+
+{
+      firstName: "Fanny",
+      lastName: "Sabin", 
+      email:  "fsabin@iron.com",
+      password: "toto",
+      permission: "editor",
+      userType: "brand",
+},
+{
+      firstName: "titi",
+      lastName: "titi", 
+      email:  "titi@titi.com",
+      password: "toto",
+      permission: "editor",
+      userType: "retailer",
+},
+
+{
+      firstName: "toto",
+      lastName: "toto", 
+      email:  "tototo@toto.com",
+      password: "toto",
+      permission: "editor",
+      userType: "brand",
+},
+
+]
 
 
 users.forEach((oneUser) => {

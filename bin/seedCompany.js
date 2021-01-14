@@ -17,6 +17,16 @@ const companies =  [
       },
 
       {
+         name: "Carrefour", 
+         companyType: "retailer",
+         email: "bonjour@carrefour.com",
+         vatNb: "88888888",
+         seasonList: ["Jan/2021", "Feb/2021", "Dec/2020"], 
+         categoryList: ["Veggie", "Cheese", "Drinks"],
+         userList: [], 
+         plan: "Enterprise"
+      },
+      {
          name: "Danone", 
          companyType: "brand",
          email: "danonevendors@danone.com",
@@ -39,13 +49,23 @@ Company.deleteMany()
       return Math.floor(Math.random() * Math.floor(arg.length)); 
     }
 
-    for (let i = 0; i < users.length; i++) {
-         companies[getRandom(companies)].userList.push(users[i])
+    function seedByType(arg){
+        const filteredUsers = users.filter((arr) => arr.userType == arg)
+        const filteredCompanies = companies.filter((arr) => arr.companyType == arg)
+        // console.log(filteredUsers, filteredCompanies )
+
+        filteredUsers.forEach((arr) => {
+          filteredCompanies[getRandom(filteredCompanies)].userList.push(arr._id)  
+        }
+        )
+          
+        filteredCompanies.forEach((arr) => 
+              arr.accountOwner == arr.userList[getRandom(arr.userList)]._id
+        )    
     }
 
-    for (let i = 0; i < companies.length; i++) {
-      companies[i].accountOwner = companies[i].userList[getRandom(companies[i].userList)]
-    }
+    seedByType("retailer")
+    seedByType("brand")
 
  })
   .then(async () => {
@@ -57,6 +77,7 @@ Company.deleteMany()
 
         arr.userList.forEach(async (user) => {
             let foundUser = await User.findByIdAndUpdate(user._id, {company: companyId}, {new: true})
+            // console.log(foundUser)
         })      
     })
     
