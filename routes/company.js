@@ -1,7 +1,7 @@
 // router prefix  /api/company
 const express = require("express");
 const router = express.Router();
-const User = require("../models/Company");
+const User = require("../models/User");
 const Company = require("../models/Company");
 
 
@@ -9,18 +9,17 @@ const Company = require("../models/Company");
 
 router.post("/mycompany",
 // requireAuth, 
-        (req, res, next) => {
-            
-            const currentUserId = req.session.currentUser; 
-            Company.create(req.body)
-            .then((companyDocument) => {
-                console.log("here=>",companyDocument)
-                Company.findByIdAndUpdate(companyDocument._id, {$push: {userList: currentUserId}}, {new: true})
-            })
-            .then((resFromApi) => {
-                res.status(200).json(resFromApi)
-            })  
-            .catch(next);
+       async (req, res, next) => {
+            try{
+                const currentUserId = req.session.currentUser; 
+                const companyDocument = await Company.create(req.body)
+                const updatedUser = await User.findByIdAndUpdate(currentUserId, {company: companyDocument._id}, {new: true})
+                const updatedCompany = await Company.findByIdAndUpdate(companyDocument._id, {$push: {userList: currentUserId}}, {new: true})
+                res.status(200).json(updatedCompany)
+
+            }catch(error){
+                    console.log(error)
+            }
         });
 
 //Question : maybe company info needs to be saved in the app state so we can use across the app ? 
@@ -29,16 +28,34 @@ router.post("/mycompany",
 // TBC : deploying the requireAuth, uncomment the line below
 router.get("/mycompany", 
 // requireAuth, 
-        (req, res, next) => {
-        const currentUserId = req.session.currentUser; 
-            User.findById(currentUserId).populate("company")
-        .then((resFromApi) => {
-            // console.log(resFromApi)
-            res.status(200).json(resFromApi);
-        })
-        .catch(next);
+    async (req, res, next) => {
+        try{
+            const currentUserId = req.session.currentUser
+            const userCompany = await User.findById(currentUserId).populate("Company")
+            
+            console.log(userCompany)
+            res.status(200).json(userCompany)
+        }catch(error){
+            next(error)
+        }
+
     });
 
+
+router.patch("/mycompany",
+    // requireAuth, 
+           async (req, res, next) => {
+
+                try{
+                    const currentUserId = req.session.currentUser; 
+                    const user = await User.findById(currentUserId)
+                    const companyId = user.company    
+                    const updatedCompany = await Company.findByIdAndUpdate(companyId, req.body, {new: true})
+                    res.status(200).json(updatedCompany)
+                }catch(error){
+                        console.log(error)
+                }
+            });
 
 
 module.exports = router;

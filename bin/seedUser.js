@@ -9,11 +9,10 @@ const users =  [
     {
     firstName: "Elisa",
     lastName: "Chen", 
-    email:  "elisachen@gmail.com",
+    email:  "elisachenririiiiii@gmail.com",
     password: "toto",
     permission: "admin",
     userType: "retailer",
-    // company: "Yasha"
 },
 {
     firstName: "Marine",
@@ -22,7 +21,6 @@ const users =  [
     password: "toto",
     permission: "editor",
     userType: "retailer",
-    // company: "Yasha"
 },
 
 {
@@ -32,12 +30,19 @@ const users =  [
     password: "toto",
     permission: "editor",
     userType: "brand",
-    // company: "Issoire"
 },
 
 ]
 
 
+
+users.forEach((oneUser) => {
+
+  const hashedPassword = bcrypt.hashSync(oneUser.password, salt);
+  // console.log(hashedPassword)
+  oneUser.password = hashedPassword 
+  
+})
 
 User.deleteMany()
   .then(async () => {

@@ -10,9 +10,8 @@ const companies =  [
          companyType: "retailer",
          email: "monoprixpubic@monoprix.com",
          vatNb: "1234567890",
-         seasonList: ["SS2020", "FW2020", "SS2021"], 
-         categoryList: [],
-        //  accountOwner: "",
+         seasonList: ["Jan-2021", "Feb-2021", "Dec-2020"], 
+         categoryList: ["Food", "Drinks", "Home"],
          userList: [], 
          plan: "Enterprise"
       },
@@ -20,11 +19,10 @@ const companies =  [
       {
          name: "Danone", 
          companyType: "brand",
-         email: "danonemedia@issoire.com",
+         email: "danonevendors@danone.com",
          vatNb: "1234567890",
-         seasonList: ["spring/summer 2020", "fall/winter 2020", "spring/summer 2021" ], 
-         categoryList: [],
-        //  accountOwner: "",
+         seasonList: ["20DEC", "21JAN", "21FEB"], 
+         categoryList: ["Classic", "New", "Season"],
          userList: [], 
          plan: "Professional"
       }
