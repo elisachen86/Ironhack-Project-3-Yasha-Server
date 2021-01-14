@@ -1,6 +1,8 @@
 require("dotenv").config();
 require("./../config/dbConnection");
 const Order = require("./../models/Order");
+const Company = require("./../models/Company");
+const User = require("./../models/User");
 
 const orders = [
   {
@@ -181,6 +183,20 @@ const orders = [
 ];
 
 Order.deleteMany()
+  .then(async () => {
+    const retailerCompanies = await Company.find({ companyType: "retailer" });
+    function getRandom(arg) {
+      return Math.floor(Math.random() * Math.floor(arg.length));
+    }
+    for (let i = 0; i < orders.length; i++) {
+      const randomRetailerCo = getRandom(retailerCompanies);
+      orders[i].retailerCompany = retailerCompanies[randomRetailerCo];
+      orders[i].retailerContact =
+        retailerCompanies[randomRetailerCo].userList[
+          getRandom(retailerCompanies[randomRetailerCo].userList)
+        ];
+    }
+  })
   .then(async () => {
     const insertedOrders = await Order.insertMany(orders);
     console.log(`ok : ${insertedOrders.length} orders inserted`);
