@@ -34,16 +34,17 @@ const companies =  [
 
 
 
-function getRandomUser () {
-  return Math.floor(Math.random() * Math.floor(users.length));
-}
-function getRandomCompany(){
-  return Math.floor(Math.random() * Math.floor(companies.length)); 
-}
 
 Company.deleteMany()
   .then(async () => {
     const users = await User.find()
+
+    function getRandomUser () {
+      return Math.floor(Math.random() * Math.floor(users.length));
+    }
+    function getRandomCompany(){
+      return Math.floor(Math.random() * Math.floor(companies.length)); 
+}
 
     for (let i = 0; i < companies.length; i++) {
       companies[i].userList.push(users[getRandomUser()]._id);
@@ -53,12 +54,10 @@ Company.deleteMany()
     // for (let i = 0; i < users.length; i++) {
     //   // companies[i].userList.push(users[getRandomUser()]._id);
     //   users[i].userList.push(users[getRandomUser()]._id);
-      // items[i].category = categories[getRandomCat()]._id;
-    }
+    //   items[i].category = categories[getRandomCat()]._id;
+    // }
 
-
-
-  })
+ })
   .then(async () => {
     const insertedCompanies = await Company.insertMany(companies);
     console.log(`ok : ${insertedCompanies.length} companies inserted`);
