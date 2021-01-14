@@ -33,34 +33,36 @@ const companies =  [
 
 
 
-
-
 Company.deleteMany()
   .then(async () => {
     const users = await User.find()
 
-    function getRandomUser () {
-      return Math.floor(Math.random() * Math.floor(users.length));
+    function getRandom(arg){
+      return Math.floor(Math.random() * Math.floor(arg.length)); 
     }
-    function getRandomCompany(){
-      return Math.floor(Math.random() * Math.floor(companies.length)); 
-}
+
+    for (let i = 0; i < users.length; i++) {
+         companies[getRandom(companies)].userList.push(users[i])
+    }
 
     for (let i = 0; i < companies.length; i++) {
-      companies[i].userList.push(users[getRandomUser()]._id);
-      // items[i].category = categories[getRandomCat()]._id;
+      companies[i].accountOwner = companies[i].userList[getRandom(companies[i].userList)]
     }
-
-    // for (let i = 0; i < users.length; i++) {
-    //   // companies[i].userList.push(users[getRandomUser()]._id);
-    //   users[i].userList.push(users[getRandomUser()]._id);
-    //   items[i].category = categories[getRandomCat()]._id;
-    // }
 
  })
   .then(async () => {
     const insertedCompanies = await Company.insertMany(companies);
     console.log(`ok : ${insertedCompanies.length} companies inserted`);
+
+    insertedCompanies.forEach((arr) => {
+      let companyId = arr._id
+
+        arr.userList.forEach(async (user) => {
+            let foundUser = await User.findByIdAndUpdate(user._id, {company: companyId}, {new: true})
+        })      
+    })
+    
+
   })
   .catch((err) => {
     console.log(err);

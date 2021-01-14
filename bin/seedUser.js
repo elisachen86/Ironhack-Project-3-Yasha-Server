@@ -1,6 +1,9 @@
 require("dotenv").config()
 require("./../config/dbConnection")
 const User = require("./../models/User")
+const bcrypt = require("bcrypt");
+
+const salt = 10;
 
 const users =  [
     {
