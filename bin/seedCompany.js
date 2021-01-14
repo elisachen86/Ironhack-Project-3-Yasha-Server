@@ -43,10 +43,10 @@ const companies =  [
 
 Company.deleteMany()
   .then(async () => {
-    const users = await User.find()
+    const users = await User.find();
 
-    function getRandom(arg){
-      return Math.floor(Math.random() * Math.floor(arg.length)); 
+    function getRandom(arg) {
+      return Math.floor(Math.random() * Math.floor(arg.length));
     }
 
     function seedByType(arg){
@@ -73,11 +73,9 @@ Company.deleteMany()
     console.log(`ok : ${insertedCompanies.length} companies inserted`);
 
     insertedCompanies.forEach((arr) => {
-      let companyId = arr._id
-
+       let companyId = arr._id
         arr.userList.forEach(async (user) => {
             let foundUser = await User.findByIdAndUpdate(user._id, {company: companyId}, {new: true})
-            // console.log(foundUser)
         })      
     })
     
@@ -86,5 +84,3 @@ Company.deleteMany()
   .catch((err) => {
     console.log(err);
   });
-
-

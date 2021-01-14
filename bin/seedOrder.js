@@ -1,6 +1,8 @@
 require("dotenv").config();
 require("./../config/dbConnection");
 const Order = require("./../models/Order");
+const Company = require("./../models/Company");
+const User = require("./../models/User");
 
 const orders = [
   {
@@ -18,6 +20,7 @@ const orders = [
       endDate: new Date("February 28, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -75,6 +78,7 @@ const orders = [
       endDate: new Date("February 4, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -135,6 +139,7 @@ const orders = [
       endDate: new Date("February 20, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -181,6 +186,24 @@ const orders = [
 ];
 
 Order.deleteMany()
+  .then(async () => {
+    const retailerCompanies = await Company.find({ companyType: "retailer" });
+    function getRandom(arg) {
+      return Math.floor(Math.random() * Math.floor(arg.length));
+    }
+    for (let i = 0; i < orders.length; i++) {
+      const randomRetailerCo = getRandom(retailerCompanies);
+      const randomRetailerCoUser = getRandom(
+        retailerCompanies[randomRetailerCo].userList
+      );
+      orders[i].retailerCompany = retailerCompanies[randomRetailerCo];
+      orders[i].retailerContact =
+        retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser];
+      orders[i].users.push(
+        retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser]
+      );
+    }
+  })
   .then(async () => {
     const insertedOrders = await Order.insertMany(orders);
     console.log(`ok : ${insertedOrders.length} orders inserted`);
