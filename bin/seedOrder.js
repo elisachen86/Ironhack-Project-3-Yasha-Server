@@ -20,6 +20,7 @@ const orders = [
       endDate: new Date("February 28, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -77,6 +78,7 @@ const orders = [
       endDate: new Date("February 4, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -137,6 +139,7 @@ const orders = [
       endDate: new Date("February 20, 2021 09:00:00"),
     },
     currency: "EUR",
+    users: [],
     comments: [],
     documents: [],
     items: [
@@ -190,11 +193,15 @@ Order.deleteMany()
     }
     for (let i = 0; i < orders.length; i++) {
       const randomRetailerCo = getRandom(retailerCompanies);
+      const randomRetailerCoUser = getRandom(
+        retailerCompanies[randomRetailerCo].userList
+      );
       orders[i].retailerCompany = retailerCompanies[randomRetailerCo];
       orders[i].retailerContact =
-        retailerCompanies[randomRetailerCo].userList[
-          getRandom(retailerCompanies[randomRetailerCo].userList)
-        ];
+        retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser];
+      orders[i].users.push(
+        retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser]
+      );
     }
   })
   .then(async () => {
