@@ -67,6 +67,7 @@ router.patch("/:id", async (req, res, next) => {
 });
 
 ///// DELETE AN ORDER ///////////
+//////!!! ROUTE NOT WORKING ////////
 router.delete("/:id", async (req, res, next) => {
   Order.findByIdAndDelete(req.params.id)
     .then((order) => {
