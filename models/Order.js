@@ -8,18 +8,18 @@ const orderSchema = new Schema(
     date: { type: Date },
     brandCompany: {
       type: Schema.Types.ObjectId,
-      ref: "company",
+      ref: "Company",
     },
     retailerCompany: {
       type: Schema.Types.ObjectId,
-      ref: "company",
+      ref: "Company",
     },
     season: { type: String },
     category: { type: String },
-    brandContact: { type: Schema.Types.ObjectId, ref: "user" },
+    brandContact: { type: Schema.Types.ObjectId, ref: "User" },
     retailerContact: {
       type: Schema.Types.ObjectId,
-      ref: "user",
+      ref: "User",
     },
     paymentTerms: {
       firstPaymentAmount: { type: Number },
@@ -32,12 +32,12 @@ const orderSchema = new Schema(
       endDate: { type: Date },
     },
     currency: { type: String },
-    users: [{ type: Schema.Types.ObjectId, ref: "user" }],
+    users: [{ type: Schema.Types.ObjectId, ref: "User" }],
     comments: [
       {
         timeStamp: Date,
         message: String,
-        user: { type: Schema.Types.ObjectId, ref: "user" },
+        user: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],
     documents: [
@@ -58,37 +58,37 @@ const orderSchema = new Schema(
     ],
     isSubmitted: {
       stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isConfirmed: {
       stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isReadyToShip: {
       stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isShipped: {
       stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isReceived: {
       stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isFirstPaymentDone: {
       paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
     isSecondPaymentDone: {
       paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
       timeCompleted: Date,
     },
   },

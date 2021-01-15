@@ -10,31 +10,51 @@ const companies =  [
          companyType: "retailer",
          email: "monoprixpubic@monoprix.com",
          vatNb: "1234567890",
-         seasonList: ["Jan-2021", "Feb-2021", "Dec-2020"], 
+        //  seasonList: ["Jan-2021", "Feb-2021", "Dec-2020"], 
+         seasonList: ["Dec 2020", "Jan 2020"], 
          categoryList: ["Food", "Drinks", "Home"],
          userList: [], 
-         plan: "Enterprise"
+         plan: "Enterprise",
+         billingAddress: "8 Avenue du Général Leclerc, 75014 Paris, France"
       },
 
       {
-         name: "Carrefour", 
+         name: "Marks and Spencer", 
          companyType: "retailer",
          email: "bonjour@carrefour.com",
          vatNb: "88888888",
-         seasonList: ["Jan/2021", "Feb/2021", "Dec/2020"], 
+        //  seasonList: ["Jan/2021", "Feb/2021", "Dec/2020"], 
+        seasonList: ["Dec 2020", "Jan 2020"], 
          categoryList: ["Veggie", "Cheese", "Drinks"],
          userList: [], 
-         plan: "Enterprise"
+         plan: "Enterprise",
+         billingAddress: "458 Oxford St, London W1C 1AP, United Kingdom"
       },
       {
          name: "Danone", 
          companyType: "brand",
          email: "danonevendors@danone.com",
          vatNb: "1234567890",
-         seasonList: ["20DEC", "21JAN", "21FEB"], 
+        //  seasonList: ["20DEC", "21JAN", "21FEB"], 
+        seasonList: ["Dec 2020", "Jan 2020"], 
          categoryList: ["Classic", "New", "Season"],
          userList: [], 
-         plan: "Professional"
+         plan: "Professional",
+         billingAddress: "458 Oxford St, London W1C 1AP, United Kingdom"
+
+      },
+      {
+         name: "Coca-Cola", 
+         companyType: "brand",
+         email: "cocacola-contact@cocacola.com",
+         vatNb: "1234567890",
+        //  seasonList: ["DEC20", "JAN2021", "FEB2021"], 
+        seasonList: ["Dec 2020", "Jan 2020"], 
+         categoryList: ["Water", "Sparkling drinks", "Non-sparklings drinks"],
+         userList: [], 
+         plan: "Professional",
+         billingAddress: "24016 Province of Bergamo, Italy"
+
       }
 
 ]
