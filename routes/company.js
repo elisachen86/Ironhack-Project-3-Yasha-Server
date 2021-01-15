@@ -39,7 +39,9 @@ router.get(
     try {
       const currentUserId = req.session.currentUser;
       const currentUser = await User.findById(currentUserId);
-      const userCompany = await Company.findById(currentUser.company);
+      const userCompany = await Company.findById(currentUser.company).populate(
+        "userList"
+      );
       res.status(200).json(userCompany);
     } catch (error) {
       next(error);
