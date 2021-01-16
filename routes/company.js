@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 const Company = require("../models/Company");
 
-///////  POST USE'S COMPANY INFO : CREATE ///////
+///////  CREATE A COMPANY ///////
 
 router.post(
   "/mycompany",
