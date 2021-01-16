@@ -56,13 +56,16 @@ const orderSchema = new Schema(
         quantity: { type: Number },
       },
     ],
-<<<<<<< HEAD
 
     steps: [
       {
-        stage: {type:String, enum :["submitted","confirmed","ready_to_ship"]},
+        stage: {
+          type: String,
+          enum: ["submitted", "confirmed", "ready_to_ship"],
+        },
         modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-        date: Date}
+        date: Date,
+      },
     ],
 
     // isSubmitted: {
@@ -90,33 +93,6 @@ const orderSchema = new Schema(
     //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
     //   timeCompleted: Date,
     // },
-=======
-    isSubmitted: {
-      stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isConfirmed: {
-      stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isReadyToShip: {
-      stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isShipped: {
-      stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isReceived: {
-      stageCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
->>>>>>> 8cc1edb3dd91245b06acb82bc4385f54d0e71663
     isFirstPaymentDone: {
       paymentCompleted: { type: Boolean },
       modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
