@@ -10,7 +10,7 @@ const userSchema = new Schema(
     avatar: {
       type: String,
       default:
-        "https://cdn1.iconfinder.com/data/icons/gardening-filled-line/614/1935_-_Growing_Plant-512.png",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     },
     permission: { type: String, enum: ["admin", "editor"] },
     //default:"editor" ???
