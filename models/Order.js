@@ -59,13 +59,6 @@ const orderSchema = new Schema(
 
     steps: [
       {
-<<<<<<< HEAD
-        stage: {type:String, enum :["submitted","confirmed","ready_to_ship"]},
-        modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-        date: Date}
-    ],
-
-=======
         stage: {
           type: String,
           enum: ["submitted", "confirmed", "ready_to_ship"],
@@ -100,7 +93,6 @@ const orderSchema = new Schema(
     //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
     //   timeCompleted: Date,
     // },
->>>>>>> 1e3fa13d351d1d4da2ab4146813be6a4db48a263
     isFirstPaymentDone: {
       paymentCompleted: { type: Boolean },
       modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
