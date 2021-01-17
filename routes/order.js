@@ -9,8 +9,10 @@ const User = require("../models/User");
 router.get("/", async (req, res, next) => {
   const currentUserId = req.session.currentUser;
   try {
-    const orders = await Order.find({ users: { $in: [currentUserId] } }).populate("retailerCompany retailerContact");
-    console.log(orders)
+    const orders = await Order.find({
+      users: { $in: [currentUserId] },
+    }).populate("retailerCompany retailerContact");
+    console.log(orders);
     res.status(200).json(orders);
   } catch (error) {
     console.log(error);
@@ -35,6 +37,15 @@ router.get("/:id", async (req, res, next) => {
 ///// CREATE AN ORDER ///////////
 router.post("/", async (req, res, next) => {
   const currentUserId = req.session.currentUser;
+  const stages = [
+    "submitted",
+    "confirmed",
+    "packed",
+    "ready_to_ship",
+    "shipped",
+    "received",
+  ];
+
   try {
     const currentUser = await User.findById(currentUserId);
     const newOrder = await Order.create(req.body);
