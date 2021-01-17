@@ -61,7 +61,14 @@ const orderSchema = new Schema(
       {
         stage: {
           type: String,
-          enum: ["submitted", "confirmed", "ready_to_ship"],
+          enum: [
+            "submitted",
+            "confirmed",
+            "packed",
+            "ready_to_ship",
+            "shipped",
+            "received",
+          ],
         },
         modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
         date: Date,

@@ -1086,12 +1086,24 @@ Order.deleteMany()
       const randomRetailerCoUser = getRandom(
         retailerCompanies[randomRetailerCo].userList
       );
+      const randomRetailerCoSeason = getRandom(
+        retailerCompanies[randomRetailerCo].seasonList
+      );
+      const randomRetailerCoCategory = getRandom(
+        retailerCompanies[randomRetailerCo].categoryList
+      );
       orders[i].retailerCompany = retailerCompanies[randomRetailerCo];
       orders[i].retailerContact =
         retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser];
       orders[i].users.push(
         retailerCompanies[randomRetailerCo].userList[randomRetailerCoUser]
       );
+      orders[i].season =
+        retailerCompanies[randomRetailerCo].seasonList[randomRetailerCoSeason];
+      orders[i].category =
+        retailerCompanies[randomRetailerCo].categoryList[
+          randomRetailerCoCategory
+        ];
     }
   })
   .then(async () => {
