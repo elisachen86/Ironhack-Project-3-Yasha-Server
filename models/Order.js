@@ -69,9 +69,12 @@ const orderSchema = new Schema(
             "shipped",
             "received",
           ],
+          default: "submitted",
         },
         modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-        date: Date,
+        date: {
+          type: Date,
+          default: new Date() }
       },
     ],
 
