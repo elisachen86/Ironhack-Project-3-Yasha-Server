@@ -65,17 +65,48 @@ router.post("/", async (req, res, next) => {
 });
 
 ///// UPDATE AN ORDER ///////////
+const stages = [
+  "submitted",
+  // "confirmed",
+  // "packed",
+  // "ready_to_ship",
+  "shipped",
+  "received",
+];
+
+const getStage = (steps, stages) => {
+  const currentStep = steps[steps.length - 1];
+
+  const index = stages.findIndex((stage) => {
+    return currentStep.stage === stage;
+  });
+
+  return stages[index + 1];
+};
+
 router.patch("/:id", async (req, res, next) => {
-  try {
-    const updatedOrder = await Order.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.status(200).json(updatedOrder);
-  } catch (error) {
-    console.log(error);
-  }
+  const updateOrder = { ...req.body };
+
+  const order = await Order.findById(req.params.id);
+
+  const currentStage = getStage(order.steps, stages);
+
+  order.steps.push({
+    stage: currentStage,
+  });
+
+  await order.save();
+  res.status(200).json(order);
+  // try {
+  //   const updatedOrder = await Order.findByIdAndUpdate(
+  //     req.params.id,
+  //     req.body,
+  //     { new: true }
+  //   );
+  //   res.status(200).json(updatedOrder);
+  // } catch (error) {
+  //   console.log(error);
+  // }
 });
 
 ///// DELETE AN ORDER ///////////
