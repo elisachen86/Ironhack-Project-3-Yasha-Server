@@ -28,16 +28,19 @@ router.post("/signin", (req, res, next) => {
     .catch(next);
 });
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", async (req, res, next) => {
   const { email, password, firstName, lastName } = req.body;
-  const company = Company.findOne({ name: req.body.company });
+  const company = await Company.findOne({ name: req.body.company });
+  if (company)
+    return res.status(400).json({
+      message: "Company already created - contact your administrator",
+    });
 
-  User.findOne({ $or: [{ email }, { company: company._id }] })
+  User.findOne({ email })
     .then((userDocument) => {
       if (userDocument) {
         return res.status(400).json({
-          message:
-            "Email or Company already created - contact your administrator",
+          message: "Email already created - contact your administrator",
         });
       }
 
