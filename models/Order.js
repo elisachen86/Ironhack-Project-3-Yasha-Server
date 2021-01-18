@@ -63,9 +63,9 @@ const orderSchema = new Schema(
           type: String,
           enum: [
             "submitted",
-            "confirmed",
-            "packed",
-            "ready_to_ship",
+            // "confirmed",
+            // "packed",
+            // "ready_to_ship",
             "shipped",
             "received",
           ],

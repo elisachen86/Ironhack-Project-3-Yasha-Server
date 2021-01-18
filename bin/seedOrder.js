@@ -40,22 +40,28 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 14, 2021 08:40:00"),
+      },
+    ],
+    // isSubmitted: {
+    //   stageCompleted: true,
+    //   timeCompleted: new Date("January 14, 2021 08:40:00"),
+    // },
+    // isConfirmed: {
+    //   stageCompleted: false,
+    // },
+    // isReadyToShip: {
+    //   stageCompleted: false,
+    // },
+    // isShipped: {
+    //   stageCompleted: false,
+    // },
+    // isReceived: {
+    //   stageCompleted: false,
+    // },
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -98,24 +104,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("December 23, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -159,23 +157,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 28, 2020 16:46:18"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -218,22 +205,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 14, 2021 08:40:00"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -276,24 +253,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("January 2, 2020 14:20:33"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -337,23 +306,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 28, 2020 16:46:18"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -396,22 +354,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 14, 2021 08:40:00"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -454,24 +402,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("December 23, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -515,23 +455,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 28, 2020 16:46:18"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -574,22 +503,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 14, 2021 08:40:00"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -632,24 +551,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("January 2, 2020 14:20:33"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -693,23 +604,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 28, 2020 16:46:18"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -752,22 +652,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 14, 2021 08:40:00"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -810,24 +700,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("December 23, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -871,23 +753,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 30, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -930,22 +801,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 14, 2021 08:40:00"),
-    },
-    isConfirmed: {
-      stageCompleted: false,
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("January 16, 2021 08:40:00"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
@@ -988,24 +849,16 @@ const orders = [
         quantity: 75,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 21, 2020 15:45:22"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 23, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: true,
-      timeCompleted: new Date("January 2, 2020 14:20:33"),
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 21, 2020 15:45:22"),
+      },
+      {
+        stage: "shipped",
+        date: new Date("December 25, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: true,
       timeCompleted: new Date("January 3, 2020 09:31:33"),
@@ -1049,23 +902,12 @@ const orders = [
         quantity: 80,
       },
     ],
-    isSubmitted: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 28, 2020 16:46:18"),
-    },
-    isConfirmed: {
-      stageCompleted: true,
-      timeCompleted: new Date("December 30, 2020 10:20:59"),
-    },
-    isReadyToShip: {
-      stageCompleted: false,
-    },
-    isShipped: {
-      stageCompleted: false,
-    },
-    isReceived: {
-      stageCompleted: false,
-    },
+    steps: [
+      {
+        stage: "submitted",
+        date: new Date("December 30, 2020 10:20:59"),
+      },
+    ],
     isFirstPaymentDone: {
       paymentCompleted: false,
     },
