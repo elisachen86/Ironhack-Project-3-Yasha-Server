@@ -24,15 +24,15 @@ const orderSchema = new Schema(
     },
     paymentTerms: {
       firstPaymentAmount: { type: Number },
-      SecondPaymentAmount: { type: Number },
+      secondPaymentAmount: { type: Number },
       firstPaymentDate: { type: Date },
-      DatePaymentDate: { type: Date },
+      secondPaymentDate: { type: Date },
     },
     deliveryWindow: {
       startDate: { type: Date },
       endDate: { type: Date },
     },
-    currency: { type: String },
+    currency: { type: String, default: "EUR" },
     users: [{ type: Schema.Types.ObjectId, ref: "User" }],
     comments: [
       {
