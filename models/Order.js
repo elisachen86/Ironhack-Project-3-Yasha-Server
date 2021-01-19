@@ -21,12 +21,12 @@ const orderSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    paymentTerms: {
-      firstPaymentAmount: { type: Number },
-      SecondPaymentAmount: { type: Number },
-      firstPaymentDate: { type: Date },
-      DatePaymentDate: { type: Date },
-    },
+    // paymentTerms: {
+    //   firstPaymentAmount: { type: Number },
+    //   SecondPaymentAmount: { type: Number },
+    //   firstPaymentDate: { type: Date },
+    //   DatePaymentDate: { type: Date },
+    // },
     deliveryWindow: {
       startDate: { type: Date },
       endDate: { type: Date },
@@ -77,42 +77,27 @@ const orderSchema = new Schema(
           default: new Date() }
       },
     ],
-
-    // isSubmitted: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isConfirmed: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isReadyToShip: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isShipped: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isReceived: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    isFirstPaymentDone: {
-      paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isSecondPaymentDone: {
-      paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
+    payments: {
+        firstPaymentPercentage: Number, 
+        firstPaymentDueDate: Date, 
+        secondPaymentDueDate: Date, 
+        paymentHistory: [
+          {payment: {
+            type: String,
+            enum: [
+              "unpaid",
+              "partially paid",
+              "fully paid"
+            ], 
+            dafaut: "unpaid",
+            modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+            date: {
+                  type: Date,
+                  default: new Date() }
+                  }}
+        ]
+    }
+  
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
