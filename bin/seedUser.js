@@ -11,8 +11,7 @@ const users = [
     lastName: "Chen",
     email: "elisachenririiiiii@gmail.com",
     password: "toto",
-    permission: "admin",
-    userType: "retailer",
+    permission: "editor",
   },
   {
     firstName: "Marine",
@@ -20,16 +19,13 @@ const users = [
     email: "pamplemarine@gmail.com",
     password: "toto",
     permission: "editor",
-    userType: "retailer",
   },
-
   {
     firstName: "Yu",
     lastName: "Miao",
     email: "yuuu.miao@gmail.com",
     password: "toto",
     permission: "editor",
-    userType: "brand",
   },
 
   {
@@ -38,7 +34,6 @@ const users = [
     email: "frank@youtuber.com",
     password: "toto",
     permission: "editor",
-    userType: "retailer",
   },
 
   {
@@ -47,7 +42,6 @@ const users = [
     email: "andy@hacker.com",
     password: "toto",
     permission: "editor",
-    userType: "retailer",
   },
 
   {
@@ -56,7 +50,6 @@ const users = [
     email: "vincent@911.com",
     password: "toto",
     permission: "editor",
-    userType: "brand",
   },
 
   {
@@ -65,7 +58,6 @@ const users = [
     email: "fsabin@iron.com",
     password: "toto",
     permission: "editor",
-    userType: "brand",
   },
   {
     firstName: "titi",
@@ -73,7 +65,6 @@ const users = [
     email: "titi@titi.com",
     password: "toto",
     permission: "editor",
-    userType: "retailer",
   },
 
   {
@@ -82,7 +73,6 @@ const users = [
     email: "tototo@toto.com",
     password: "toto",
     permission: "editor",
-    userType: "brand",
   },
 ];
 

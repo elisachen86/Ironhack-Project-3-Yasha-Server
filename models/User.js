@@ -12,9 +12,8 @@ const userSchema = new Schema(
       default:
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     },
-    permission: { type: String, enum: ["admin", "editor"] },
-    //default:"editor" ???
-    userType: { type: String, enum: ["retailer", "brand"] },
+    permission: { type: String, enum: ["admin", "editor"], default: "editor" },
+    // userType: { type: String, enum: ["retailer", "brand"] }, //don't need this because it should come from company db
     company: { type: Schema.Types.ObjectId, ref: "Company" },
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
