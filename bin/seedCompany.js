@@ -63,24 +63,33 @@ Company.deleteMany()
       return Math.floor(Math.random() * Math.floor(arg.length));
     }
 
-    function seedByType(arg) {
-      const filteredUsers = users.filter((arr) => arr.userType == arg);
-      const filteredCompanies = companies.filter(
-        (arr) => arr.companyType == arg
-      );
-      // console.log(filteredUsers, filteredCompanies )
+    users.forEach((user) =>
+      companies[getRandom(companies)].userList.push(user._id)
+    );
 
-      filteredUsers.forEach((arr) => {
-        filteredCompanies[getRandom(filteredCompanies)].userList.push(arr._id);
-      });
+    companies.forEach(
+      (company) =>
+        (company.accountOwner =
+          company.userList[getRandom(company.userList)]._id)
+    );
 
-      filteredCompanies.forEach(
-        (arr) => (arr.accountOwner = arr.userList[getRandom(arr.userList)]._id)
-      );
-    }
+    // function seedByType(arg) {
+    //   const filteredUsers = users.filter((arr) => arr.userType == arg);
+    //   const filteredCompanies = companies.filter(
+    //     (arr) => arr.companyType == arg
+    //   );
+    //   // console.log(filteredUsers, filteredCompanies )
 
-    seedByType("retailer");
-    seedByType("brand");
+    //   filteredUsers.forEach((arr) => {
+    //     filteredCompanies[getRandom(filteredCompanies)].userList.push(arr._id);
+    //   });
+
+    //   filteredCompanies.forEach(
+    //     (arr) => (arr.accountOwner = arr.userList[getRandom(arr.userList)]._id)
+    //   );
+    // }
+    // seedByType("retailer");
+    // seedByType("brand");
   })
   .then(async () => {
     const insertedCompanies = await Company.insertMany(companies);
