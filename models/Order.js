@@ -41,15 +41,17 @@ const orderSchema = new Schema(
         user: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],
-    documents: [
-      {
-        submittedOrder: String,
-        confirmedOrder: String,
-        packingList: String,
-        commercialInvoice: String,
-        shippingConfirmation: String,
-      },
-    ],
+    docsShipping: String,
+    // documents: [
+    //   {
+    //     submittedOrder: String,
+    //     shippingDocs: String,
+    // confirmedOrder: String,
+    // packingList: String,
+    // commercialInvoice: String,
+    // shippingConfirmation: String,
+    //   },
+    // ],
     items: [
       {
         itemName: { type: String },

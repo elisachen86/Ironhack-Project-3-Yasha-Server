@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const upload = require("../config/cloudinary");
 
 ///////  GET USER INFO ///////
 // tested => TBC : deploying requireAuth
@@ -24,14 +25,13 @@ router.get(
 router.patch(
   "/me",
   // requireAuth,
-  // upload.single("profileImg"),
+  upload.single("avatar"),
   (req, res, next) => {
     const userId = req.session.currentUser;
 
-    //   if (req.file) {
-    //     req.body.profileImg = req.file.path;
-    //   }
-
+    if (req.file) {
+      req.body.avatar = req.file.path;
+    }
     User.findByIdAndUpdate(userId, req.body, { new: true })
       .select("-password") // Remove the password field from the found document.
       .then((userDocument) => {
