@@ -93,10 +93,8 @@ router.patch("/:id", uploader.single("docUrl"), async (req, res, next) => {
   };
   delete updateOrder.docName;
   delete updateOrder.docUrl;
-  console.log(updateOrder);
 
   if (req.file) {
-    console.log(">>>>>>>>>>>we have a file");
     updateOrder.documents.docUrl = req.file.path;
   }
 
