@@ -79,25 +79,21 @@ const orderSchema = new Schema(
         },
       },
     ],
-    payments: {
-      firstPaymentPercentage: Number,
-      firstPaymentDueDate: Date,
-      secondPaymentDueDate: Date,
-      paymentHistory: [
-        {
-          payment: {
-            type: String,
-            enum: ["unpaid", "partially paid", "fully paid"],
-            dafaut: "unpaid",
-            modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-            date: {
-              type: Date,
-              default: new Date(),
-            },
+
+    paymentHistory: [
+      {
+        payment: {
+          type: String,
+          enum: ["unpaid", "partially paid", "fully paid"],
+          dafaut: "unpaid",
+          modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+          date: {
+            type: Date,
+            default: new Date(),
           },
         },
-      ],
-    },
+      },
+    ],
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );

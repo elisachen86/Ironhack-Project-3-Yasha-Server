@@ -11,10 +11,12 @@ const orders = [
     date: new Date("January 12, 2021 09:45:22"),
     season: "Jan 2020",
     category: "Beverages",
-    // paymentTerms: {
-    //   firstPaymentAmount: 0,
-    //   SecondPaymentAmount: 0,
-    // },
+    paymentTerms: {
+      firstPaymentAmount: 50,
+      secondPaymentAmount: 50,
+      firstPaymentDate:  new Date("February 7, 2021 09:00:00"), 
+      secondPaymentDate: new Date("March 7, 2021 09:00:00"), 
+    },
     deliveryWindow: {
       startDate: new Date("February 15, 2021 09:00:00"),
       endDate: new Date("February 28, 2021 09:00:00"),
@@ -47,29 +49,29 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("January 4, 2021 09:00:00")
+      },
 
-        firstPaymentPercentage: 0.3, 
-        firstPaymentDueDate:  new Date("February 7, 2021 09:00:00"), 
-        secondPaymentDueDate: new Date("March 7, 2021 09:00:00"), 
-        paymentHistory: [
-          { payment: "unpaid",
-            date: new Date("January 4, 2021 09:00:00")
-          },
-
-          { payment: "partially paid",
-            date: new Date("January 18, 2021 09:00:00")
-          },
-        ]
-    },
+      { payment: "partially paid",
+        date: new Date("January 18, 2021 09:00:00")
+      },
+    ],
   },
+
   {
     name: "Danone Dec 2020",
     number: "PO2930183",
     date: new Date("December 20, 2020 15:45:22"),
     season: "Dec 2020",
     category: "Snacks",
-
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("December 23, 2020 09:00:00"), 
+      secondPaymentDate: new Date("December 31, 2020 09:00:00"), 
+    },
     deliveryWindow: {
       startDate: new Date("January 25, 2021 09:00:00"),
       endDate: new Date("February 4, 2021 09:00:00"),
@@ -106,12 +108,7 @@ const orders = [
       },
     ],
 
-    payments: {
-
-          firstPaymentPercentage: 0.5, 
-          firstPaymentDueDate:  new Date("December 23, 2020 09:00:00"), 
-          secondPaymentDueDate: new Date("December 31, 2020 09:00:00"), 
-          paymentHistory: [
+      paymentHistory: [
             { payment: "unpaid",
               date: new Date("December 21, 2020 09:00:00")
             },
@@ -124,10 +121,8 @@ const orders = [
               date: new Date("Decmber 29, 2020 09:00:00")
             },
              ]
-      },
-
-
   },
+
   {
     name: "Mondelez Dec 2020",
     number: "PO39204811",
@@ -165,26 +160,25 @@ const orders = [
         date: new Date("December 28, 2020 16:46:18"),
       },
     ],
-    payments: {
-
-          firstPaymentPercentage: 0.4, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
-
-            // { payment: "partially paid",
-            //   date: new Date("Decmber 22, 2020 09:00:00")
-            // },
-
-            // { payment: "fully paid",
-            //   date: new Date("Decmber 29, 2020 09:00:00")
-            // },
-            ]
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
     },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
+      // { payment: "partially paid",
+      //   date: new Date("Decmber 22, 2020 09:00:00")
+      // },
+
+      // { payment: "fully paid",
+      //   date: new Date("Decmber 29, 2020 09:00:00")
+      // },
+      ]
   },
 
 
@@ -194,10 +188,7 @@ const orders = [
     date: new Date("January 12, 2021 09:45:22"),
     season: "Jan 2020",
     category: "Beverages",
-    paymentTerms: {
-      firstPaymentAmount: 0,
-      SecondPaymentAmount: 0,
-    },
+
     deliveryWindow: {
       startDate: new Date("February 15, 2021 09:00:00"),
       endDate: new Date("February 28, 2021 09:00:00"),
@@ -229,26 +220,28 @@ const orders = [
         date: new Date("January 14, 2021 08:40:00"),
       },
     ],
-    payments: {
 
-              firstPaymentPercentage: 0.4, 
-              firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-              secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-              paymentHistory: [
-                { payment: "unpaid",
-                  date: new Date("December 21, 2020 09:00:00")
-                },
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-                { payment: "partially paid",
-                  date: new Date("Decmber 22, 2020 09:00:00")
-                },
+      { payment: "partially paid",
+        date: new Date("Decmber 22, 2020 09:00:00")
+      },
 
-                { payment: "fully paid",
-                  date: new Date("Decmber 29, 2020 09:00:00")
-                },
-                ]
-              },
+      { payment: "fully paid",
+        date: new Date("Decmber 29, 2020 09:00:00")
+      },
+      ]
   },
+
   {
     name: "Danone Dec 2020",
     number: "PO2930183",
@@ -291,26 +284,29 @@ const orders = [
         date: new Date("January 2, 2021 14:20:33"),
       },
     ],
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            { payment: "fully paid",
-              date: new Date("January 17, 2021 09:00:00")
-            },
-            ]
-},
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ]
+  
   },
+
+
   {
     name: "Mondelez Dec 2020",
     number: "PO39204811",
@@ -349,26 +345,28 @@ const orders = [
         date: new Date("December 28, 2020 16:46:18"),
       },
     ],
-    payments: {
 
-      firstPaymentPercentage: 0.3, 
-      firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-      paymentHistory: [
-        { payment: "unpaid",
-          date: new Date("December 21, 2020 09:00:00")
-        },
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-        { payment: "partially paid",
-          date: new Date("Decmber 31 , 2020 09:00:00")
-        },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-        { payment: "fully paid",
-          date: new Date("January 17, 2021 09:00:00")
-        },
-        ]
-},
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ], 
   },
+
   {
     name: "Coca-Cola Jan 2020",
     number: "PO193946891",
@@ -407,26 +405,27 @@ const orders = [
         date: new Date("January 14, 2021 08:40:00"),
       },
     ],
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-            firstPaymentPercentage: 0.3, 
-            firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-            secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-            paymentHistory: [
-              { payment: "unpaid",
-                date: new Date("December 21, 2020 09:00:00")
-              },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-              { payment: "partially paid",
-                date: new Date("Decmber 31 , 2020 09:00:00")
-              },
-
-              { payment: "fully paid",
-                date: new Date("January 17, 2021 09:00:00")
-              },
-        ]
-},
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+    ],
   },
+
   {
     name: "Danone Dec 2020",
     number: "PO2930183",
@@ -470,27 +469,27 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-        firstPaymentPercentage: 0.3, 
-        firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-        secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-        paymentHistory: [
-          { payment: "unpaid",
-            date: new Date("December 21, 2020 09:00:00")
-          },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-          { payment: "partially paid",
-            date: new Date("Decmber 31 , 2020 09:00:00")
-          },
-
-          { payment: "fully paid",
-            date: new Date("January 17, 2021 09:00:00")
-          },
-          ]
-},
-
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ],
   },
+
   {
     name: "Mondelez Dec 2020",
     number: "PO39204811",
@@ -529,28 +528,27 @@ const orders = [
         date: new Date("December 28, 2020 16:46:18"),
       },
     ],
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-    payments: {
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
-
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            { payment: "fully paid",
-              date: new Date("January 17, 2021 09:00:00")
-            },
-            ]
-},
-
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ],
   },
+
   {
     name: "Coca-Cola Jan 2020",
     number: "PO193946891",
@@ -590,27 +588,27 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-        firstPaymentPercentage: 0.3, 
-        firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-        secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-        paymentHistory: [
-          { payment: "unpaid",
-            date: new Date("December 21, 2020 09:00:00")
-          },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-          { payment: "partially paid",
-            date: new Date("Decmber 31 , 2020 09:00:00")
-          },
-
-          { payment: "fully paid",
-            date: new Date("January 17, 2021 09:00:00")
-          },
-          ]
-},
-
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ]
   },
+
   {
     name: "Danone Dec 2020",
     number: "PO2930183",
@@ -653,27 +651,25 @@ const orders = [
         date: new Date("January 2, 2020 14:20:33"),
       },
     ],
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-    payments: {
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
-
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            { payment: "fully paid",
-              date: new Date("January 17, 2021 09:00:00")
-            },
-            ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ],
   },
   {
     name: "Mondelez Dec 2020",
@@ -714,27 +710,27 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("March 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("March 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            // { payment: "fully paid",
-            //   date: new Date("January 17, 2021 09:00:00")
-            // },
-            ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ]
   },
+
   {
     name: "Coca-Cola Jan 2020",
     number: "PO193946891",
@@ -773,28 +769,27 @@ const orders = [
         date: new Date("January 14, 2021 08:40:00"),
       },
     ],
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("January 12, 2021 09:00:00")
+      },
 
-    payments: {
+      // { payment: "partially paid",
+      //   date: new Date("Decmber 31 , 2020 09:00:00")
+      // },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("January 12, 2021 09:00:00")
-            },
-
-            // { payment: "partially paid",
-            //   date: new Date("Decmber 31 , 2020 09:00:00")
-            // },
-
-            // { payment: "fully paid",
-            //   date: new Date("January 17, 2021 09:00:00")
-            // },
-            ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ]
   },
+
   {
     name: "Danone Dec 2020",
     number: "PO2930183",
@@ -838,27 +833,27 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 21, 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            { payment: "fully paid",
-              date: new Date("January 19, 2021 09:00:00")
-            },
-            ]
-},
-
+      { payment: "fully paid",
+        date: new Date("January 19, 2021 09:00:00")
+      },
+      ],
   },
+
   {
     name: "Mondelez Dec 2020",
     number: "PO39204811",
@@ -898,27 +893,28 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 40,
+      secondPaymentAmount: 60,
+      firstPaymentDate:  new Date("Decmber 31 , 2020 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("Decmber 31 , 2020 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 28, 2020 09:00:00")
-            },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 28, 2020 09:00:00")
+      },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 30 , 2020 09:00:00")
-            },
+      { payment: "partially paid",
+        date: new Date("Decmber 30 , 2020 09:00:00")
+      },
 
-            { payment: "fully paid",
-              date: new Date("January 17, 2021 09:00:00")
-            },
-            ]
-},
-
+      { payment: "fully paid",
+        date: new Date("January 17, 2021 09:00:00")
+      },
+      ]
   },
+
   {
     name: "Coca-Cola Jan 2020",
     number: "PO193946891",
@@ -958,26 +954,25 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("January 12, 2021 09:00:00")
+      },
 
-        firstPaymentPercentage: 0.3, 
-        firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-        secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-        paymentHistory: [
-          { payment: "unpaid",
-            date: new Date("January 12, 2021 09:00:00")
-          },
+      // { payment: "partially paid",
+      //   date: new Date("January 12, 2021 09:00:00")
+      // },
 
-          // { payment: "partially paid",
-          //   date: new Date("January 12, 2021 09:00:00")
-          // },
-
-          // { payment: "fully paid",
-          //   date: new Date("January 17, 2021 09:00:00")
-          // },
-          ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ]
   },
   {
     name: "Danone Dec 2020",
@@ -1022,26 +1017,25 @@ const orders = [
       },
     ],
 
-    payments: {
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"),  
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 20, 2020 09:00:00")
+      },
 
-          firstPaymentPercentage: 0.3, 
-          firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-          secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-          paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 20, 2020 09:00:00")
-            },
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 31 , 2020 09:00:00")
-            },
-
-            // { payment: "fully paid",
-            //   date: new Date("January 17, 2021 09:00:00")
-            // },
-            ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ],
   },
   {
     name: "Mondelez Dec 2020",
@@ -1081,27 +1075,25 @@ const orders = [
         date: new Date("December 30, 2020 10:20:59"),
       },
     ],
+    paymentTerms: {
+      firstPaymentAmount: 30,
+      secondPaymentAmount: 70,
+      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
+      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+    },
+    paymentHistory: [
+      { payment: "unpaid",
+        date: new Date("December 28, 2020 09:00:00")
+      },
 
-    payments: {
+      { payment: "partially paid",
+        date: new Date("Decmber 31 , 2020 09:00:00")
+      },
 
-        firstPaymentPercentage: 0.3, 
-        firstPaymentDueDate:  new Date("January 1, 2021 09:00:00"), 
-        secondPaymentDueDate: new Date("Febauary 5, 2021 09:00:00"), 
-        paymentHistory: [
-          { payment: "unpaid",
-            date: new Date("December 28, 2020 09:00:00")
-          },
-
-          { payment: "partially paid",
-            date: new Date("Decmber 31 , 2020 09:00:00")
-          },
-
-          // { payment: "fully paid",
-          //   date: new Date("January 17, 2021 09:00:00")
-          // },
-          ]
-},
-
+      // { payment: "fully paid",
+      //   date: new Date("January 17, 2021 09:00:00")
+      // },
+      ]
   },
 ];
 
