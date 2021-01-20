@@ -7,8 +7,9 @@ const orderSchema = new Schema(
     number: { type: String, required: true },
     date: { type: Date },
     brandCompany: {
-      type: Schema.Types.ObjectId,
-      ref: "Company",
+      type: String,
+      // type: Schema.Types.ObjectId,
+      // ref: "Company",
     },
     retailerCompany: {
       type: Schema.Types.ObjectId,
@@ -23,15 +24,15 @@ const orderSchema = new Schema(
     },
     paymentTerms: {
       firstPaymentAmount: { type: Number },
-      SecondPaymentAmount: { type: Number },
+      secondPaymentAmount: { type: Number },
       firstPaymentDate: { type: Date },
-      DatePaymentDate: { type: Date },
+      secondPaymentDate: { type: Date },
     },
     deliveryWindow: {
       startDate: { type: Date },
       endDate: { type: Date },
     },
-    currency: { type: String },
+    currency: { type: String, default: "EUR" },
     users: [{ type: Schema.Types.ObjectId, ref: "User" }],
     comments: [
       {
@@ -74,44 +75,28 @@ const orderSchema = new Schema(
         modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
         date: {
           type: Date,
-          default: new Date() }
+          default: new Date(),
+        },
       },
     ],
-
-    // isSubmitted: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isConfirmed: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isReadyToShip: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isShipped: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    // isReceived: {
-    //   stageCompleted: { type: Boolean },
-    //   modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-    //   timeCompleted: Date,
-    // },
-    isFirstPaymentDone: {
-      paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
-    },
-    isSecondPaymentDone: {
-      paymentCompleted: { type: Boolean },
-      modifiedBy: { type: Schema.Types.ObjectId, ref: "User" },
-      timeCompleted: Date,
+    payments: {
+      firstPaymentPercentage: Number,
+      firstPaymentDueDate: Date,
+      secondPaymentDueDate: Date,
+      paymentHistory: [
+        {
+          payment: {
+            type: String,
+            enum: ["unpaid", "partially paid", "fully paid"],
+            dafaut: "unpaid",
+            modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+            date: {
+              type: Date,
+              default: new Date(),
+            },
+          },
+        },
+      ],
     },
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
