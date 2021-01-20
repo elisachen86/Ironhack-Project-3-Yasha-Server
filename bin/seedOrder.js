@@ -14,8 +14,8 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 50,
       secondPaymentAmount: 50,
-      firstPaymentDate:  new Date("February 7, 2021 09:00:00"), 
-      secondPaymentDate: new Date("March 7, 2021 09:00:00"), 
+      firstPaymentDate: new Date("February 7, 2021 09:00:00"),
+      secondPaymentDate: new Date("March 7, 2021 09:00:00"),
     },
     deliveryWindow: {
       startDate: new Date("February 15, 2021 09:00:00"),
@@ -50,12 +50,11 @@ const orders = [
     ],
 
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("January 4, 2021 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("January 4, 2021 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("January 18, 2021 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("January 18, 2021 09:00:00"),
       },
     ],
   },
@@ -69,8 +68,8 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("December 23, 2020 09:00:00"), 
-      secondPaymentDate: new Date("December 31, 2020 09:00:00"), 
+      firstPaymentDate: new Date("December 23, 2020 09:00:00"),
+      secondPaymentDate: new Date("December 31, 2020 09:00:00"),
     },
     deliveryWindow: {
       startDate: new Date("January 25, 2021 09:00:00"),
@@ -108,19 +107,16 @@ const orders = [
       },
     ],
 
-      paymentHistory: [
-            { payment: "unpaid",
-              date: new Date("December 21, 2020 09:00:00")
-            },
+    paymentHistory: [
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
 
-            { payment: "partially paid",
-              date: new Date("Decmber 22, 2020 09:00:00")
-            },
+      {
+        payment: "partially paid",
+        date: new Date("December 22, 2020 09:00:00"),
+      },
 
-            { payment: "fully paid",
-              date: new Date("Decmber 29, 2020 09:00:00")
-            },
-             ]
+      { payment: "fully paid", date: new Date("December 29, 2020 09:00:00") },
+    ],
   },
 
   {
@@ -163,24 +159,21 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
 
       // { payment: "partially paid",
-      //   date: new Date("Decmber 22, 2020 09:00:00")
+      //   date: new Date("December 22, 2020 09:00:00")
       // },
 
       // { payment: "fully paid",
-      //   date: new Date("Decmber 29, 2020 09:00:00")
+      //   date: new Date("December 29, 2020 09:00:00")
       // },
-      ]
+    ],
   },
-
 
   {
     name: "Coca-Cola Jan 2020",
@@ -224,22 +217,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 22, 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 22, 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("Decmber 29, 2020 09:00:00")
-      },
-      ]
+      { payment: "fully paid", date: new Date("December 29, 2020 09:00:00") },
+    ],
   },
 
   {
@@ -287,25 +277,20 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ]
-  
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
-
 
   {
     name: "Mondelez Dec 2020",
@@ -349,22 +334,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ], 
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -408,21 +390,18 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
     ],
   },
 
@@ -472,22 +451,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ],
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -531,22 +507,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ],
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -591,22 +564,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ]
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -654,22 +624,21 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ],
+    ],
   },
   {
     name: "Mondelez Dec 2020",
@@ -713,22 +682,21 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("March 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("March 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ]
+    ],
   },
 
   {
@@ -772,22 +740,20 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("January 12, 2021 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("January 12, 2021 09:00:00") },
 
       // { payment: "partially paid",
-      //   date: new Date("Decmber 31 , 2020 09:00:00")
+      //   date: new Date("December 31 , 2020 09:00:00")
       // },
 
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ]
+    ],
   },
 
   {
@@ -836,22 +802,19 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 21, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 21, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 19, 2021 09:00:00")
-      },
-      ],
+      { payment: "fully paid", date: new Date("January 19, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -896,23 +859,20 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 40,
       secondPaymentAmount: 60,
-      firstPaymentDate:  new Date("Decmber 31 , 2020 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("December 31 , 2020 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
 
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 28, 2020 09:00:00")
+      { payment: "unpaid", date: new Date("December 28, 2020 09:00:00") },
+
+      {
+        payment: "partially paid",
+        date: new Date("December 30 , 2020 09:00:00"),
       },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 30 , 2020 09:00:00")
-      },
-
-      { payment: "fully paid",
-        date: new Date("January 17, 2021 09:00:00")
-      },
-      ]
+      { payment: "fully paid", date: new Date("January 17, 2021 09:00:00") },
+    ],
   },
 
   {
@@ -957,13 +917,11 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("January 12, 2021 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("January 12, 2021 09:00:00") },
 
       // { payment: "partially paid",
       //   date: new Date("January 12, 2021 09:00:00")
@@ -972,7 +930,7 @@ const orders = [
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ]
+    ],
   },
   {
     name: "Danone Dec 2020",
@@ -1020,22 +978,21 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"),  
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 20, 2020 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("December 20, 2020 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ],
+    ],
   },
   {
     name: "Mondelez Dec 2020",
@@ -1078,22 +1035,21 @@ const orders = [
     paymentTerms: {
       firstPaymentAmount: 30,
       secondPaymentAmount: 70,
-      firstPaymentDate:  new Date("January 1, 2021 09:00:00"), 
-      secondPaymentDate: new Date("Febauary 5, 2021 09:00:00"), 
+      firstPaymentDate: new Date("January 1, 2021 09:00:00"),
+      secondPaymentDate: new Date("February 5, 2021 09:00:00"),
     },
     paymentHistory: [
-      { payment: "unpaid",
-        date: new Date("December 28, 2020 09:00:00")
-      },
+      { payment: "unpaid", date: new Date("December 28, 2020 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("Decmber 31 , 2020 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("December 31 , 2020 09:00:00"),
       },
 
       // { payment: "fully paid",
       //   date: new Date("January 17, 2021 09:00:00")
       // },
-      ]
+    ],
   },
 ];
 
