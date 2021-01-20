@@ -6,7 +6,7 @@ const User = require("./../models/User");
 
 const orders = [
   {
-    name: "Coca-Cola Jan 2020",
+    name: "Coca-Cola n 2020",
     number: "PO193946891",
     date: new Date("January 12, 2021 09:45:22"),
     season: "Jan 2020",
@@ -23,7 +23,9 @@ const orders = [
     },
     currency: "EUR",
     users: [],
-    comments: [],
+    comments: [{
+      
+    }],
     documents: [],
     items: [
       {

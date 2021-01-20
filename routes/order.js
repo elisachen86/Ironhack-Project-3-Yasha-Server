@@ -28,7 +28,11 @@ router.get("/:id", async (req, res, next) => {
     const order = await Order.find({
       users: { $in: [currentUserId] },
       _id: req.params.id,
-    });
+    }).populate({
+      path: "comments",
+      populate: { path: 'user' }
+    })
+    ;
     res.status(200).json(order);
   } catch (error) {
     console.log(error);
@@ -142,5 +146,20 @@ router.delete("/:id", async (req, res, next) => {
   //   console.log(error);
   // }
 });
+
+
+/////   CREATE AN COMMENT  ///////////
+router.patch("/comment/:id", async (req, res, next) => {
+  // console.log("comment-reqBody", req.body)
+  // console.log("comment-id", req.params.id)
+
+  try {
+        res.json(await Order.findByIdAndUpdate(req.params.id, {$push: {comments: req.body}}, {new: true}));        
+  } catch (err) {
+          next(err)
+  }
+})
+
+
 
 module.exports = router;
