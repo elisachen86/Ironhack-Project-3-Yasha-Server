@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
 const User = require("../models/User");
+const uploader = require("../config/cloudinary");
 
 ///////  GET ALL ORDERS ///////
 // tested => TBC : deploying requireAuth
@@ -84,16 +85,30 @@ const getStage = (steps, stages) => {
   return stages[index + 1];
 };
 
-router.patch("/:id", async (req, res, next) => {
+router.patch("/:id", uploader.single("docUrl"), async (req, res, next) => {
   const updateOrder = { ...req.body };
+  updateOrder.documents = {
+    docName: req.body.docName,
+    docUrl: req.body.docUrl,
+  };
+  delete updateOrder.docName;
+  delete updateOrder.docUrl;
+  console.log(updateOrder);
+
+  if (req.file) {
+    console.log(">>>>>>>>>>>we have a file");
+    updateOrder.documents.docUrl = req.file.path;
+  }
 
   const order = await Order.findById(req.params.id);
 
+  // if (order.steps[steps.length - 1].stage !== "received") {
   const currentStage = getStage(order.steps, stages);
-
   order.steps.push({
     stage: currentStage,
   });
+  order.documents.push(updateOrder.documents);
+  // }
 
   await order.save();
   res.status(200).json(order);
