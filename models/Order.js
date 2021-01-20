@@ -88,11 +88,11 @@ const orderSchema = new Schema(
           type: String,
           enum: ["unpaid", "partially paid", "fully paid"],
           dafaut: "unpaid",
-          modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
-          date: {
-            type: Date,
-            default: new Date(),
-          },
+        },
+        modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
+        date: {
+          type: Date,
+          default: new Date(),
         },
       },
     ],
