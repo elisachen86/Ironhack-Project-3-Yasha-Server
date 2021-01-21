@@ -88,7 +88,7 @@ const orderSchema = new Schema(
         payment: {
           type: String,
           enum: ["unpaid", "partially paid", "fully paid"],
-          dafaut: "unpaid",
+          default: "unpaid",
         },
         modifiedBy: { type: Schema.Types.ObjectId, ref: "user" },
         date: {
