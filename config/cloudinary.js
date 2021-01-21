@@ -12,6 +12,10 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary, // Cloudinary configuration
   folder: "yasha", // folder name to upload to on your cloudinary account.
   allowedFormats: ["jpg", "png", "svg", "jpeg", "pdf"],
+  resource_type: "image",
+  transformation: {
+    page: "all",
+  },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   },
