@@ -7,7 +7,8 @@
     "start": "node ./bin/www",
     "seeduser": "node ./bin/seedUser.js",
     "seedcompany": "node ./bin/seedCompany.js",
-    "seedorder": "node ./bin/seedOrder.js"
+    "seedorder": "node ./bin/seedOrder.js",
+    "build-react": "echo ---- creating react build --- && cd ../client  && npm install && npm run build && cp -r ./build/* ../server/public/ && cd .."
   },
   "dependencies": {
     "aws-s3": "^2.0.5",
