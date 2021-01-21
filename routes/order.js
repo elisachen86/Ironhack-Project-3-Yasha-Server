@@ -4,6 +4,9 @@ const router = express.Router();
 const Order = require("../models/Order");
 const User = require("../models/User");
 const uploader = require("../config/cloudinary");
+const getGoogleOrder = require("../config/googleSpreadsheet");
+
+console.log("order from google spreadsheets", getGoogleOrder);
 
 ///////  GET ALL ORDERS ///////
 // tested => TBC : deploying requireAuth
@@ -30,9 +33,8 @@ router.get("/:id", async (req, res, next) => {
       _id: req.params.id,
     }).populate({
       path: "comments",
-      populate: { path: 'user' }
-    })
-    ;
+      populate: { path: "user" },
+    });
     res.status(200).json(order);
   } catch (error) {
     console.log(error);
@@ -147,19 +149,22 @@ router.delete("/:id", async (req, res, next) => {
   // }
 });
 
-
 /////   CREATE AN COMMENT  ///////////
 router.patch("/comment/:id", async (req, res, next) => {
   // console.log("comment-reqBody", req.body)
   // console.log("comment-id", req.params.id)
 
   try {
-        res.json(await Order.findByIdAndUpdate(req.params.id, {$push: {comments: req.body}}, {new: true}));        
+    res.json(
+      await Order.findByIdAndUpdate(
+        req.params.id,
+        { $push: { comments: req.body } },
+        { new: true }
+      )
+    );
   } catch (err) {
-          next(err)
+    next(err);
   }
-})
-
-
+});
 
 module.exports = router;

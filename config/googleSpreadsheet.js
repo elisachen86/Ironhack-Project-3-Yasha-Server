@@ -25,8 +25,8 @@ async function getSpreadsheet(spreadSheetID) {
   }
 }
 
-async function getParams() {
-  const doc = await getSpreadsheet();
+async function getParams(spreadsheetId) {
+  const doc = await getSpreadsheet(spreadsheetId);
   //   let adress = notationByArrToA1Notation(adressCell);
   // await doc.loadInfo(); // loads sheets
   const sheet1 = doc.sheetsByIndex[0]; // the first sheet
@@ -56,10 +56,12 @@ async function getParams() {
       quantity: rowsSheet2[i].quantity,
     });
   }
-
-  console.log("this is the order:", order);
+  //   console.log("this is the order:", order);
+  return order;
 }
 
-// const testSheet = getSpreadsheet();
-const order = getParams();
-console.log(order);
+const order = getParams;
+
+// console.log(order);
+
+module.exports = order;
