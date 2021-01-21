@@ -44,14 +44,31 @@ router.get("/:id", async (req, res, next) => {
 ///// CREATE AN ORDER ///////////
 router.post("/", async (req, res, next) => {
   const currentUserId = req.session.currentUser;
-  const stages = [
-    "submitted",
-    "confirmed",
-    "packed",
-    "ready_to_ship",
-    "shipped",
-    "received",
-  ];
+
+  if (req.body.googleDocId) {
+    try {
+      const currentUser = await User.findById(currentUserId);
+      const googleOrder = await getGoogleOrder(req.body.googleDocId);
+      const newOrder = await Order.create(googleOrder);
+      const updatedOrder = await Order.findByIdAndUpdate(
+        newOrder._id,
+        {
+          retailerContact: currentUserId,
+          retailerCompany: currentUser.company,
+          users: [currentUserId],
+          steps: {
+            stage: "submitted",
+            date: new Date(),
+            modifiedBy: currentUserId,
+          },
+        },
+        { new: true }
+      );
+      res.status(201).json(updatedOrder);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   try {
     const currentUser = await User.findById(currentUserId);
