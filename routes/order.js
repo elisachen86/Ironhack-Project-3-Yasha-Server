@@ -40,60 +40,41 @@ router.get("/:id", async (req, res, next) => {
 });
 
 ///// CREATE AN ORDER ///////////
-router.post(
-  "/",
-  async (req, res, next) => {
-    const currentUserId = req.session.currentUser;
+router.post("/", async (req, res, next) => {
+  const currentUserId = req.session.currentUser;
 
-    try {
-      const currentUser = await User.findById(currentUserId);
-      let newOrder;
-      if (req.body.googleDocId) {
-        const googleOrder = await getGoogleOrder(req.body.googleDocId);
-        newOrder = await Order.create(googleOrder);
-      } else {
-        newOrder = await Order.create(req.body);
-      }
-      const updatedOrder = await Order.findByIdAndUpdate(
-        newOrder._id,
-        {
-          retailerContact: currentUserId,
-          retailerCompany: currentUser.company,
-          users: [currentUserId],
-          steps: {
-            stage: "submitted",
-            date: new Date(),
-            modifiedBy: currentUserId,
-          },
-          paymentHistory: {
-            payment: "Not paid",
-            date: new Date(),
-          },
-        },
-        { new: true }
-      );
-      res.status(201).json(updatedOrder);
-    } catch (error) {
-      console.log(error);
+  try {
+    const currentUser = await User.findById(currentUserId);
+    let newOrder;
+    if (req.body.googleDocId) {
+      const googleOrder = await getGoogleOrder(req.body.googleDocId);
+      newOrder = await Order.create(googleOrder);
+    } else {
+      newOrder = await Order.create(req.body);
     }
+    const updatedOrder = await Order.findByIdAndUpdate(
+      newOrder._id,
+      {
+        retailerContact: currentUserId,
+        retailerCompany: currentUser.company,
+        users: [currentUserId],
+        steps: {
+          stage: "submitted",
+          date: new Date(),
+          modifiedBy: currentUserId,
+        },
+        paymentHistory: {
+          payment: "Not paid",
+          date: new Date(),
+        },
+      },
+      { new: true }
+    );
+    res.status(201).json(updatedOrder);
+  } catch (error) {
+    console.log(error);
   }
-
-  // try {
-  //   const currentUser = await User.findById(currentUserId);
-  //   const updatedOrder = await Order.findByIdAndUpdate(
-  //     newOrder._id,
-  //     {
-  //       retailerContact: currentUserId,
-  //       retailerCompany: currentUser.company,
-  //       users: [currentUserId],
-  //     },
-  //     { new: true }
-  //   );
-  //   res.status(201).json(updatedOrder);
-  // } catch (error) {
-  //   console.log(error);
-  // }
-);
+});
 
 ///// UPDATE AN ORDER ///////////
 const stages = [
