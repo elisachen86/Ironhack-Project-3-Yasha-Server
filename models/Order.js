@@ -7,9 +7,9 @@ const orderSchema = new Schema(
     number: { type: String, required: true },
     date: { type: Date },
     brandCompany: {
-      type: String,
-      // type: Schema.Types.ObjectId,
-      // ref: "Company",
+      // type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Company",
     },
     retailerCompany: {
       type: Schema.Types.ObjectId,
@@ -38,6 +38,7 @@ const orderSchema = new Schema(
       {
         timeStamp: Date,
         message: String,
+        isRead: {type: Boolean, default: false},
         user: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],

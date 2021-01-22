@@ -12,8 +12,12 @@ router.get("/", async (req, res, next) => {
   try {
     const orders = await Order.find({
       users: { $in: [currentUserId] },
-    }).populate("retailerCompany retailerContact");
-    console.log(orders);
+    }).populate("retailerCompany retailerContact")
+      .populate("brandCompany brandContact")
+      .populate({
+        path: "comments",
+        populate: { path: 'user' }})
+    // console.log(orders);
     res.status(200).json(orders);
   } catch (error) {
     console.log(error);
@@ -31,8 +35,8 @@ router.get("/:id", async (req, res, next) => {
     }).populate({
       path: "comments",
       populate: { path: 'user' }
-    })
-    ;
+    }).populate("brandContact retailerContact")
+      .populate("retailerCompany brandCompany")
     res.status(200).json(order);
   } catch (error) {
     console.log(error);
@@ -152,9 +156,30 @@ router.delete("/:id", async (req, res, next) => {
 router.patch("/comment/:id", async (req, res, next) => {
   // console.log("comment-reqBody", req.body)
   // console.log("comment-id", req.params.id)
-
   try {
         res.json(await Order.findByIdAndUpdate(req.params.id, {$push: {comments: req.body}}, {new: true}));        
+  } catch (err) {
+          next(err)
+  }
+})
+
+
+/////   UPDATE AN COMMENT  //////////
+router.patch("/commentupdate/:id", async (req, res, next) => {
+  // console.log("comment-reqBody", req.body)
+  // console.log("comment-id", req.params.id)
+  try {
+        res.json(await Order.findOneAndUpdate(
+          { 
+            "_id" : req.params.id, 
+            "comments.id" : req.body._id, 
+            },
+          { 
+            $set : { "comments.$.isRead" : true } 
+          },
+          false,
+          true
+        ));        
   } catch (err) {
           next(err)
   }
