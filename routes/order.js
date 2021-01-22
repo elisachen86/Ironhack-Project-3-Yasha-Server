@@ -6,8 +6,6 @@ const User = require("../models/User");
 const uploader = require("../config/cloudinary");
 const getGoogleOrder = require("../config/googleSpreadsheet");
 
-console.log("order from google spreadsheets", getGoogleOrder);
-
 ///////  GET ALL ORDERS ///////
 // tested => TBC : deploying requireAuth
 router.get("/", async (req, res, next) => {
@@ -42,14 +40,20 @@ router.get("/:id", async (req, res, next) => {
 });
 
 ///// CREATE AN ORDER ///////////
-router.post("/", async (req, res, next) => {
-  const currentUserId = req.session.currentUser;
+router.post(
+  "/",
+  async (req, res, next) => {
+    const currentUserId = req.session.currentUser;
 
-  if (req.body.googleDocId) {
     try {
       const currentUser = await User.findById(currentUserId);
-      const googleOrder = await getGoogleOrder(req.body.googleDocId);
-      const newOrder = await Order.create(googleOrder);
+      let newOrder;
+      if (req.body.googleDocId) {
+        const googleOrder = await getGoogleOrder(req.body.googleDocId);
+        newOrder = await Order.create(googleOrder);
+      } else {
+        newOrder = await Order.create(req.body);
+      }
       const updatedOrder = await Order.findByIdAndUpdate(
         newOrder._id,
         {
@@ -61,6 +65,10 @@ router.post("/", async (req, res, next) => {
             date: new Date(),
             modifiedBy: currentUserId,
           },
+          paymentHistory: {
+            payment: "Not paid",
+            date: new Date(),
+          },
         },
         { new: true }
       );
@@ -70,23 +78,22 @@ router.post("/", async (req, res, next) => {
     }
   }
 
-  try {
-    const currentUser = await User.findById(currentUserId);
-    const newOrder = await Order.create(req.body);
-    const updatedOrder = await Order.findByIdAndUpdate(
-      newOrder._id,
-      {
-        retailerContact: currentUserId,
-        retailerCompany: currentUser.company,
-        users: [currentUserId],
-      },
-      { new: true }
-    );
-    res.status(201).json(updatedOrder);
-  } catch (error) {
-    console.log(error);
-  }
-});
+  // try {
+  //   const currentUser = await User.findById(currentUserId);
+  //   const updatedOrder = await Order.findByIdAndUpdate(
+  //     newOrder._id,
+  //     {
+  //       retailerContact: currentUserId,
+  //       retailerCompany: currentUser.company,
+  //       users: [currentUserId],
+  //     },
+  //     { new: true }
+  //   );
+  //   res.status(201).json(updatedOrder);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+);
 
 ///// UPDATE AN ORDER ///////////
 const stages = [
