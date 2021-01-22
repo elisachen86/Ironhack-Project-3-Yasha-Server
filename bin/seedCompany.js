@@ -67,11 +67,11 @@ Company.deleteMany()
       companies[getRandom(companies)].userList.push(user._id)
     );
 
-    companies.forEach(
-      (company) =>
-        (company.accountOwner =
-          company.userList[getRandom(company.userList)]._id)
-    );
+    // companies.forEach(
+    //   (company) =>
+    //     (company.accountOwner =
+    //       company.userList[getRandom(company.userList)]._id)
+    // );
 
     // function seedByType(arg) {
     //   const filteredUsers = users.filter((arr) => arr.userType == arg);
