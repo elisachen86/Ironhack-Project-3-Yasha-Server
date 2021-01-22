@@ -29,9 +29,9 @@ async function getParams(spreadsheetId) {
   const doc = await getSpreadsheet(spreadsheetId);
   //   let adress = notationByArrToA1Notation(adressCell);
   // await doc.loadInfo(); // loads sheets
-  const sheet1 = doc.sheetsByIndex[0]; // the first sheet
+  const sheet1 = doc.sheetsByIndex[1]; // the first sheet
   const rowsSheet1 = await sheet1.getRows();
-  const sheet2 = doc.sheetsByIndex[1]; // the second sheet
+  const sheet2 = doc.sheetsByIndex[2]; // the second sheet
   const rowsSheet2 = await sheet2.getRows();
 
   const order = {
@@ -59,6 +59,8 @@ async function getParams(spreadsheetId) {
   //   console.log("this is the order:", order);
   return order;
 }
+
+// getParams();
 
 const order = getParams;
 

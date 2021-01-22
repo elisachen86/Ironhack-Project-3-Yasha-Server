@@ -74,6 +74,22 @@ const users = [
     password: "toto",
     permission: "editor",
   },
+
+  {
+    firstName: "John",
+    lastName: "Doe",
+    email: "john.doe@test.com",
+    password: "toto",
+    permission: "editor",
+  },
+
+  {
+    firstName: "Mary",
+    lastName: "Jane",
+    email: "mary.jane@test.com",
+    password: "toto",
+    permission: "editor",
+  },
 ];
 
 users.forEach((oneUser) => {
