@@ -23,9 +23,7 @@ const orders = [
     },
     currency: "EUR",
     users: [],
-    comments: [{
-      
-    }],
+    comments: [{}],
     documents: [],
     items: [
       {
@@ -176,7 +174,6 @@ const orders = [
       // },
     ],
   },
-
 
   {
     name: "Coca-Cola Feb 2020",
@@ -1073,9 +1070,7 @@ const orders = [
     },
     currency: "EUR",
     users: [],
-    comments: [{
-      
-    }],
+    comments: [{}],
     documents: [],
     items: [
       {
@@ -1140,7 +1135,7 @@ const orders = [
       {
         itemName: "Danao 50mL",
         price: 0.75,
-        quantity:77,
+        quantity: 77,
       },
       {
         itemName: "Danone Strawberry 4 x 25g",
@@ -1217,13 +1212,12 @@ const orders = [
     paymentHistory: [
       { payment: "unpaid", date: new Date("September 4 09:00:00") },
 
-      { payment: "partially paid",
-        date: new Date("September 16, 2020 09:00:00")
+      {
+        payment: "partially paid",
+        date: new Date("September 16, 2020 09:00:00"),
       },
 
-      { payment: "fully paid",
-        date: new Date("September 30, 2020 09:00:00")
-      },
+      { payment: "fully paid", date: new Date("September 30, 2020 09:00:00") },
     ],
   },
 
@@ -2103,7 +2097,6 @@ const orders = [
       // },
     ],
   },
-  
 ];
 
 Order.deleteMany()
@@ -2139,18 +2132,12 @@ Order.deleteMany()
           randomRetailerCoCategory
         ];
 
-
-
-     orders[i].brandCompany = brandCompanies[getRandom(brandCompanies)]
-
-    if(orders[i].brandCompany.userList.length > 0) {
-            const index = getRandom(orders[i].brandCompany.userList)
-            orders[i].brandContact = orders[i].brandCompany.userList[index]
-            orders[i].users.push(orders[i].brandContact)
-
-    }
-
-  
+      // orders[i].brandCompany = brandCompanies[getRandom(brandCompanies)]
+      // if(orders[i].brandCompany.userList.length > 0) {
+      //         const index = getRandom(orders[i].brandCompany.userList)
+      //         orders[i].brandContact = orders[i].brandCompany.userList[index]
+      //         orders[i].users.push(orders[i].brandContact)
+      // }
     }
   })
   .then(async () => {
@@ -2160,4 +2147,3 @@ Order.deleteMany()
   .catch((err) => {
     console.log(err);
   });
-
