@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/dbConnection");
+require("./config/googleSpreadsheet");
 
 const express = require("express");
 const path = require("path");
